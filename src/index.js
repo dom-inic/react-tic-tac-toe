@@ -101,15 +101,6 @@ class Board extends React.Component{
 }
 
 class Game extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      history: [{
-        squares: Array(9).fill(null),
-      }],
-      xIsNext: true
-    }
-  }
   render() { 
     return (
       <div className="game">
@@ -125,10 +116,35 @@ class Game extends React.Component{
   }
 }
 
+class GameList extends React.Component{
+  render () {
+    return (
+      <h1 className="game-list">This component should return the list of all game mode available </h1>
+    )
+  }
+}
+
+class Footer extends React.Component{
+  render (){
+    return(
+      <ul>
+        <li>Home</li>
+        <li>Play</li>
+        <li>Pause</li>
+        <li>record</li>
+        <li>dance</li>
+        <li>jdj</li>
+      </ul>
+    )
+  }
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Tittle />,
-    <Game />
+    <Game />,
+    <GameList />,
+    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -160,31 +176,3 @@ function calculateWinner(squares){
   return null;    
   }
 } 
-
-history = [
-  // Before first move
-  {
-    squares: [
-      null, null, null,
-      null, null, null,
-      null, null, null,
-    ]
-  },
-  // After first move
-  {
-    squares: [
-      null, null, null,
-      null, 'X', null,
-      null, null, null,
-    ]
-  },
-  // After second move
-  {
-    squares: [
-      null, null, null,
-      null, 'X', null,
-      null, null, 'O',
-    ]
-  },
-  // ...
-]
